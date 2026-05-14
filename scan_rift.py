@@ -19,7 +19,7 @@ def get_nginx_version():
 
 
 def parse_nginx_version(version_output):
-    match = re.search(r'nginx/(\d+\.\d+\.\d+)', version_output)
+    match = re.search(r'nginx version: \w+/(\d+\.\d+\.\d+)', version_output)
     if not match:
         return None
     return tuple(int(part) for part in match.group(1).split('.'))
