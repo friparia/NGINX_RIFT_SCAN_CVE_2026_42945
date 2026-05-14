@@ -1,5 +1,7 @@
 # NGINX Rift 配置扫描器
 
+语言：中文 | [English](README.en.md)
+
 这是一个用于检查 NGINX 配置是否存在 CVE-2026-42945（NGINX Rift）风险模式的轻量级脚本。
 
 该漏洞由 depthfirst 在文章 [NGINX Rift: Achieving NGINX RCE via an 18-Year-Old Vulnerability](https://depthfirst.com/research/nginx-rift-achieving-nginx-rce-via-an-18-year-old-vulnerability) 中披露。根据文章和 F5/NVD 描述，风险与 `ngx_http_rewrite_module` 的特定配置组合有关：在同一配置上下文中，`rewrite` 的替换字符串包含 `?`，后续 `rewrite`、`if` 或 `set` 又引用了未命名 PCRE 捕获变量，例如 `$1`、`$2`。
